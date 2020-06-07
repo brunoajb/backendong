@@ -23,6 +23,7 @@ const publico = require('./routes/casosPublicos');
 const usuarios = require('./routes/usuarios');
 const adminCasos = require('./routes/casosAdmin');
 const adminOngs = require('./routes/ongsAdmin');
+const login = require('./routes/login');
 
 
 app.use('/', index);
@@ -32,7 +33,7 @@ app.use('/publico', publico);
 app.use('/usuarios', usuarios);
 app.use('/admin-casos', adminCasos);
 app.use('/admin-ongs', adminOngs);
-
+app.use('/login', login);
 
 app.listen(port, ()=>{
   console.log('api rodando na porta: '+ port);
