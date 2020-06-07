@@ -15,9 +15,9 @@ module.exports = {
     senha = md5(senha + process.env.SALT_KEY);
 
     try{
-      const user = await connection(tabela).column('nome','email', 'senha').select().where('email', email);
+      const user = await connection(tabela).column('id','nome','email', 'senha').select().where('email', email);
       if(user.length===0){
-        const ong = await connection('ongs').column('nome','email', 'senha').select().where('email', email);
+        const ong = await connection('ongs').column('id','nome','email', 'senha').select().where('email', email);
         if(ong.length === 0)
           return res.json({message: 'Email não encontrado', status: 'erro'});
         
