@@ -15,7 +15,7 @@ module.exports = {
       if(!ong[0])
         return res.json({message: 'Esta ONG não está cadastrada em nosso sistema', status: 'erro'});
       
-      const casos = await connection(table).select().where('ong_id',id);
+      const casos = await connection(table).where('ong_id',id).join('ongs', 'ongs.id', '=', 'casos.ong_id').select(['casos.*', 'ongs.nome', 'ongs.email', 'ongs.telefone', 'ongs.cidade', 'ongs.uf']);
 
       return res.json({casos, status:'sucesso'});
 
