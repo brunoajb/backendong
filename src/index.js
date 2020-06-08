@@ -35,6 +35,6 @@ app.use('/admin-casos', adminCasos);
 app.use('/admin-ongs', adminOngs);
 app.use('/login', login);
 
-app.listen(port, ()=>{
+app.listen(process.env.PORT || port, ()=>{
   console.log('api rodando na porta: '+ port);
 })
